@@ -2,7 +2,9 @@ package com.example.newsapp
 
 import android.content.Context
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AlphaAnimation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.newsapp.databinding.ItemListBinding
 
@@ -20,11 +22,18 @@ class RvAdapter(private var dataList:ArrayList<RvModel>, private var context:Con
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+        anim(holder.itemView)
         holder.binding.imgNews.setImageResource(dataList[position].profile)
         holder.binding.txtTitle.text= dataList[position].title
         holder.binding.txtDes.text= dataList[position].desp
 
     }
     inner class MyViewHolder(var binding:ItemListBinding ): RecyclerView.ViewHolder(binding.root)
+
+    fun anim(view: View){
+        val animation = AlphaAnimation(0.0f,1.0f)
+        animation.duration= 1700
+        view.startAnimation(animation)
+    }
 }
 

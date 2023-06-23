@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         rvAdapter= RvAdapter(Constant.getData(),this)
-        binding.newList.layoutManager= LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
+        binding.newList.layoutManager= LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
         binding.newList.adapter= rvAdapter
     }
 }
